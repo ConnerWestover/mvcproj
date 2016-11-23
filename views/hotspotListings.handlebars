@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>The Hotspot</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="shortcut icon" href="/assets/img/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+</head>
+<body>
+  <nav><a href="/login"><img id="logo" src="/assets/img/icon.png" alt="fire logo"/></a>
+    <div class="navlink"><a href="/logout">Log out</a></div>
+    <div class="navlink"><a href="/hotspotCreation">Create Hotspot</a></div>
+    <div class="navlink"><a href="/GameNight">Hotspot Listings</a></div>
+  </nav>
+  <section id = 'categorySelection'>
+    <ul>
+      <li><div class="navlink"><a href="/Concerts">Concerts</a></div>    </li>
+      <li><div class="navlink"><a href="/Banquets">Banquets</a></div>    </li>
+      <li><div class="navlink"><a href="/GameNight">Game Nights</a></div></li>
+      <li><div class="navlink"><a href="/Party">Parties</a></div>        </li>
+      <li><div class="navlink"><a href="/Other">Other Hotspots</a></div> </li>
+    </ul>
+  </section>
+  <section id="hotspots">
+    <div class="hotspot">
+      {{#if hotspots}}
+        {{#each hotspots}}
+          <div class = "hotspot"><img src = "/assets/img/icon.png" alt = "hotspot icon" class = "icon" width = 50 height = 60/>
+            <h1 class = "hotspotName">{{this.name}}</h1>
+            <h3 class = "hotspotDate">Date: {{this.date}}</h3>
+            <p class = "hotspotDescription"> {{this.description}}</p>
+          </div>
+        {{/each}}
+      {{else}}
+          <h3 class = "emptyHotspots">No Hotspots in that category yet</h3>
+      {{/if}}
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script src="/assets/hotspotListings.js" type="text/babel"></script>
+</body>
+</html>

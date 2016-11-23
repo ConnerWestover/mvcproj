@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>The Hotspot</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="shortcut icon" href="/assets/img/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+</head>
+<body>
+  <nav>
+    <a href="/login"><img id="logo" src="/assets/img/icon.png" alt="fire logo"/></a>
+    <div class="navlink"><a href="/logout">Log out</a></div>
+    <div class="navlink"><a href="/hotspotCreation">Create Hotspot</a></div>
+    <div class="navlink"><a href="/GameNight">Hotspot Listings</a></div>
+  </nav>
+  <section id="makeHotspot">
+    <form id="hotspotForm" name="hotspotForm" action="/makeHotspot" method="GET" class="hotspotForm">
+      <label for="name">Name: </label>
+      <input id="hotspotName" type="text" name="name" placeholder="Hotspot Name"/>
+      <label for="date">Date of Hotspot: </label>
+      <input id="hotspotDate" type="datetime-local" name="date"/>
+      <label for="category">Hotspot Type: </label>
+      <select name="category" id="hotspotCategory" form="hotspotForm">
+        <option value="Concert">Concert</option>
+        <option value="Banquet">Banquet</option>
+        <option value="Game Night">Game Night</option>
+        <option value="Party">Party</option>
+        <option value="Other">Other</option>
+      </select>
+      <label for="description">Hotspot Description: </label>
+      <input id="hotspotDescription" type="text" name="description" placeholder="Hotspot Description"/>
+      <input type = "hidden" name = "_csrf" value = {{csrfToken}} />
+      <a id="makeHotspotSubmit" href="#" class="makeHotspotSubmit">Create Hotspot</a>
+      
+    </form>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script src="/assets/hotspotCreation.js" type="text/babel"></script>
+</body>
+</html>
